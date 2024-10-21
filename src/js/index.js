@@ -1,16 +1,17 @@
-//import react into the bundle
-import React from 'react'
-import {createRoot} from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import store from './store'; // Asegúrate de que esta ruta sea correcta
+import App from './views/App'; // Asegúrate de que esta ruta sea correcta
 
-//include your index.scss file into the bundle
-import "../styles/index.css";
+const root = ReactDOM.createRoot(document.getElementById('root')); // Aquí se busca el elemento con ID "root"
 
-//import your own components
-import Layout from './layout.js'
+root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+);
 
-//
-const root = createRoot(document.querySelector("#app"))
 
-//render your react application
-root.render(<Layout/>)
+
 
